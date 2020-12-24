@@ -1,9 +1,11 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  :recoverable, :rememberable, :validatable
+  
   has_many :salas
+  devise :omniauthable, omniauth_providers: [:facebook]
   devise :database_authenticatable, :registerable,
+  :recoverable, :rememberable, :validatable
   GENRES = %w[male female other]
   validates :fullname, presence :true
   validates :username, presence :true, uniqueness: true, length: { minimum: 3 }
