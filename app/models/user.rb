@@ -7,9 +7,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
   :recoverable, :rememberable, :validatable
   GENRES = %w[male female other]
-  validates :fullname, presence :true
-  validates :username, presence :true, uniqueness: true, length: { minimum: 3 }
-  validates :genre, presence :true, inclusion: { in: GENRES }
+  validates :fullname, presence: true
+  validates :username, presence: true, uniqueness: true, length: { minimum: 3 }
+  validates :genre, presence: true, inclusion: { in: GENRES }
   
   def self.find_for_facebook_oauth(auth)
     user_params = auth.slice("provider", "uid")
