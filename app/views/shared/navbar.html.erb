@@ -16,8 +16,6 @@ div class="navbar navbar-expand-sm bg-light navbar-lewagon">
           Minhas Salas
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-        <% current_user.explorations.each do |exploration| %>
-          <%= link_to exploration.activity.title, activity_path(exploration.activity), class: "dropdown-item" %>
         <% end %>
         </div>
       </li>
